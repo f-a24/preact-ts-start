@@ -1,0 +1,85 @@
+{
+  "name": "preact-ts-start",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "build": "webpack --config webpack.config.js",
+    "format": "eslint --fix {src,tests}/**/*.{ts,tsx} & stylelint --fix src/**/*.tsx",
+    "lint": "eslint {src,tests}/**/*.{ts,tsx} & stylelint src/**/*.tsx",
+    "precommit": "lint-staged",
+    "test": "jest",
+    "start": "webpack-dev-server --config webpack.config.js --hot"
+  },
+  "lint-staged": {
+    "*.{ts,tsx}": [
+      "eslint --fix",
+      "stylelint --fix",
+      "git add"
+    ]
+  },
+  "jest": {
+    "verbose": true,
+    "transform": {
+      "^.+\\.tsx?$": "ts-jest"
+    },
+    "testRegex": "(/__tests__/.*|(\\.|/)(test|spec))\\.(jsx?|tsx?)$",
+    "moduleDirectories": [
+      "node_modules",
+      "src"
+    ],
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js",
+      "jsx",
+      "json",
+      "node"
+    ],
+    "moduleNameMapper": {
+      "^react$": "preact/compat"
+    },
+    "setupFilesAfterEnv": [
+      "./tests/setupTest.ts"
+    ]
+  },
+  "dependencies": {
+    "preact": "^10.4.0",
+    "styled-components": "^5.1.0",
+    "styled-reset": "^4.1.3"
+  },
+  "devDependencies": {
+    "@types/enzyme": "^3.10.5",
+    "@types/jest": "^25.2.1",
+    "@types/styled-components": "^5.0.1",
+    "@typescript-eslint/eslint-plugin": "^2.27.0",
+    "@typescript-eslint/parser": "^2.27.0",
+    "enzyme": "^3.11.0",
+    "enzyme-adapter-preact-pure": "^2.2.0",
+    "eslint": "^6.8.0",
+    "eslint-config-airbnb": "^18.1.0",
+    "eslint-config-preact": "^1.1.1",
+    "eslint-config-prettier": "^6.10.1",
+    "eslint-plugin-import": "^2.20.2",
+    "eslint-plugin-jest": "^23.8.2",
+    "eslint-plugin-jsx-a11y": "^6.2.3",
+    "eslint-plugin-prettier": "^3.1.3",
+    "eslint-plugin-react": "^7.19.0",
+    "husky": "^4.2.5",
+    "jest": "^25.3.0",
+    "jest-styled-components": "^7.0.2",
+    "lint-staged": "^10.1.3",
+    "prettier": "^2.0.4",
+    "stylelint": "^13.3.2",
+    "stylelint-config-prettier": "^8.0.1",
+    "stylelint-config-standard": "^20.0.0",
+    "stylelint-config-styled-components": "^0.1.1",
+    "stylelint-processor-styled-components": "^1.10.0",
+    "ts-jest": "^25.3.1",
+    "ts-loader": "^6.2.2",
+    "typescript": "^3.8.3",
+    "webpack": "^4.42.1",
+    "webpack-cli": "^3.3.11",
+    "webpack-dev-server": "^3.10.3"
+  }
+}
